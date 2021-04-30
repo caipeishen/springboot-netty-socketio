@@ -10,23 +10,23 @@
         window.onload = function(){
             initSocket();
         }
-        function getCookie(c_name)
-        {
-            if (document.cookie.length>0)
-            {
-                c_start=document.cookie.indexOf(c_name + "=")
-                if (c_start!=-1)
-                {
-                    c_start=c_start + c_name.length+1
-                    c_end=document.cookie.indexOf(";",c_start)
-                    if (c_end==-1) c_end=document.cookie.length
-                    return unescape(document.cookie.substring(c_start,c_end))
-                }
-            }
-            return ""
-        }
+        // function getCookie(c_name)
+        // {
+        //     if (document.cookie.length>0)
+        //     {
+        //         c_start=document.cookie.indexOf(c_name + "=")
+        //         if (c_start!=-1)
+        //         {
+        //             c_start=c_start + c_name.length+1
+        //             c_end=document.cookie.indexOf(";",c_start)
+        //             if (c_end==-1) c_end=document.cookie.length
+        //             return unescape(document.cookie.substring(c_start,c_end))
+        //         }
+        //     }
+        //     return ""
+        // }
         function initSocket(){
-            socket = io('http://localhost:8974/test?Authorization=' + new Date()); //正式发布环境
+            socket = io('http://172.16.21.75:8974/test?Authorization=' + new Date()); //正式发布环境
             // socket = io('http://localhost:8974/test'); //正式发布环境
             socket.on('connect', function () {
                 console.log('socket连接成功');

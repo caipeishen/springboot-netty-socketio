@@ -12,6 +12,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.stereotype.Component;
 
 import java.util.Random;
+import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
@@ -48,9 +49,10 @@ public class TestMessageEventHandler implements IEventHandler {
     
     @OnEvent(value = "aaaa")
     public void onEvent(SocketIOClient client, AckRequest request, String data) {
+        Set<String> allRooms = client.getAllRooms();
         log.debug("发来消息：" + data);
         UUID sessionId = client.getSessionId();
-        socketIOServer.getNamespace(namespace).getClient(sessionId).sendEvent("bbbb", "点对点消息的返回" + Math.random());
+        socketIOServer.getNamespace(this.namespace).getClient(sessionId).sendEvent("bbbb", "点对点消息的返回" + Math.random());
     }
     
     /**

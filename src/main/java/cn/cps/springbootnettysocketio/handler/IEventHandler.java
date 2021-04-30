@@ -21,7 +21,7 @@ public interface IEventHandler {
     
     default void connect(SocketIOClient client) {
 //        if (!client.getNamespace().getName().equals("/chat")) {
-        client.disconnect();
+//        client.disconnect();
 //            return;
 //        }
         String token = client.getHandshakeData().getSingleUrlParam("Authorization");

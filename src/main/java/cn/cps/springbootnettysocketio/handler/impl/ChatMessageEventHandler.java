@@ -11,7 +11,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.stereotype.Component;
 
+import java.util.Collection;
 import java.util.Random;
+import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
@@ -52,7 +54,7 @@ public class ChatMessageEventHandler implements IEventHandler {
         socketIOServer.getNamespace(namespace).getClient(sessionId).sendEvent("bbbb", "点对点消息的返回" + Math.random());
     }
     
-    /**
+    /**4082b9cc-d915-4ac4-be08-bbf49fa8a828
      * 测试无限推送
      * */
     @OnEvent(value = "testPush")
